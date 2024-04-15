@@ -1,0 +1,479 @@
+--Google Data Analytics Capstone Project: Cyclistic Ride-Share SQL CODE
+--Executed in open-source platform DB browser with SQLite
+
+--Count how many bike rides were from members or annual riders
+
+SELECT
+member_casual AS Type_of_Rider,
+rideable_type AS bike_type,
+COUNT(ride_id) AS Total_Num_Of_Rides
+
+FROM tripdata
+	
+GROUP BY
+	Type_of_Rider, bike_type;
+
+casual	classic_bike	888878
+casual	docked_bike	174950
+casual	electric_bike	722294
+member	classic_bike	1708692
+member	electric_bike	958679
+
+--Determine the top 10 most popular starting station for all casual customers
+SELECT
+member_casual AS type_of_member,
+start_station_name AS starting_location,
+
+COUNT(*) AS num_of_rides
+
+FROM tripdata
+
+WHERE
+	start_station_name IS NOT NULL AND member_casual = "casual"
+	
+GROUP BY
+	start_station_name
+
+ORDER BY
+	num_of_rides DESC
+
+LIMIT 10;
+
+casual	Streeter Dr & Grand Ave	55118
+casual	DuSable Lake Shore Dr & Monroe St	30291
+casual	Millennium Park	24015
+casual	Michigan Ave & Oak St	23796
+casual	DuSable Lake Shore Dr & North Blvd	22171
+casual	Shedd Aquarium	19469
+casual	Theater on the Lake	17346
+casual	Wells St & Concord Ln	14891
+casual	Dusable Harbor	13287
+casual	Clark St & Armitage Ave	12814
+
+----Determine the top 10 most popular starting station for all member customers
+SELECT
+member_casual AS type_of_member,
+start_station_name AS starting_location,
+
+COUNT(*) AS num_of_rides
+
+FROM tripdata
+
+WHERE
+	start_station_name IS NOT NULL AND member_casual != "casual"
+	
+GROUP BY
+	start_station_name
+	
+ORDER BY
+	num_of_rides DESC
+	
+LIMIT 10;
+
+member	Kingsbury St & Kinzie St	23681
+member	Clark St & Elm St	20704
+member	Wells St & Concord Ln	19795
+member	Clinton St & Washington Blvd	18940
+member	Loomis St & Lexington St	18348
+member	Clinton St & Madison St	18112
+member	University Ave & 57th St	17764
+member	Ellis Ave & 60th St	17633
+member	Wells St & Elm St	17630
+member	Broadway & Barry Ave	16285
+
+--Most popular day to ride a bike for casual customers
+SELECT
+COUNT(ride_id) AS num_of_rides,
+day
+
+FROM tripdata
+
+WHERE
+	member_casual = "casual"
+
+GROUP BY 
+day
+
+ORDER BY 
+num_of_rides DESC, day
+
+
+370569	Saturday
+305047	Sunday
+252513	Friday
+234626	Thursday
+213885	Monday
+208560	Wednesday
+200922	Tuesday
+
+--Most popular day to ride a bike for member customers
+SELECT
+COUNT(ride_id) AS num_of_rides,
+day
+
+FROM tripdata
+
+WHERE
+	member_casual != "casual"
+GROUP BY 
+day
+
+ORDER BY 
+num_of_rides DESC
+
+424993	Thursday
+423597	Wednesday
+421881	Tuesday
+382356	Monday
+367317	Friday
+343964	Saturday
+303263	Sunday
+
+
+--Find the average bike riding time by membership type
+
+SELECT
+member_casual AS Member_Type,
+round(AVG(trip_duration),2) AS Average_Length_of_Ride
+FROM tripdata
+
+WHERE
+	start_station_name IS NOT NULL
+	
+GROUP BY
+	member_casual;
+
+casual	0.11
+member	0.01
+
+--Top 10 highest ride times for each member group
+
+SELECT
+member_casual AS member_type,
+trip_duration AS ridetime,
+start_station_name
+FROM tripdata
+
+WHERE
+member_casual = "member"
+
+ORDER BY
+ridetime DESC
+
+LIMIT 10;
+
+member	23:59	McCormick Place
+member	23:59	Wells St & Elm St
+member	23:56	Ashland Ave & Division St
+member	23:55	Dearborn St & Monroe St
+member	23:54	LaSalle Dr & Huron St
+member	23:41	Wells St & Concord Ln
+member	23:41	Wells St & Concord Ln
+member	23:38	DuSable Lake Shore Dr & Wellington Ave
+member	23:37	Wells St & Elm St
+member	23:35	Southport Ave & Waveland Ave
+
+--Top 10 highest ride times for each member group
+
+SELECT
+member_casual AS member_type,
+trip_duration AS ridetime,
+start_station_name
+FROM tripdata
+
+WHERE
+member_casual = "casual"
+
+ORDER BY
+ridetime DESC
+
+LIMIT 10;
+
+casual	23:59	New St & Illinois St
+casual	23:59	Austin Blvd & Chicago Ave
+casual	23:59	Wabash Ave & 16th St
+casual	23:59	Racine Ave & Garfield Blvd
+casual	23:58	Ellis Ave & 55th St
+casual	23:58	Clyde Ave & 87th St
+casual	23:57	Clark St & Grace St
+casual	23:57	Montrose Harbor
+casual	23:57	Stave St & Armitage Ave
+casual	23:56	Halsted St & Wrightwood Ave
+
+-- Most popular day to ride a bike by member type
+	
+SELECT
+member_casual AS member_type,
+day,
+COUNT(*) AS Num_of_Trips,
+rideable_type AS type_of_bike
+
+FROM tripdata
+	
+GROUP BY
+	day, member_casual, type_of_bike
+	
+ORDER BY
+	member_casual, day, Num_of_Trips DESC;
+
+casual	Friday	122575	classic_bike
+casual	Friday	106956	electric_bike
+casual	Friday	22982	docked_bike
+casual	Monday	104028	classic_bike
+casual	Monday	87605	electric_bike
+casual	Monday	22252	docked_bike
+casual	Saturday	196662	classic_bike
+casual	Saturday	133567	electric_bike
+casual	Saturday	40340	docked_bike
+casual	Sunday	158350	classic_bike
+casual	Sunday	111429	electric_bike
+casual	Sunday	35268	docked_bike
+casual	Thursday	113457	classic_bike
+casual	Thursday	101677	electric_bike
+casual	Thursday	19492	docked_bike
+casual	Tuesday	95793	classic_bike
+casual	Tuesday	87616	electric_bike
+casual	Tuesday	17513	docked_bike
+casual	Wednesday	98013	classic_bike
+casual	Wednesday	93444	electric_bike
+casual	Wednesday	17103	docked_bike
+member	Friday	231598	classic_bike
+member	Friday	135719	electric_bike
+member	Monday	247274	classic_bike
+member	Monday	135082	electric_bike
+member	Saturday	227216	classic_bike
+member	Saturday	116748	electric_bike
+member	Sunday	201072	classic_bike
+member	Sunday	102191	electric_bike
+member	Thursday	267282	classic_bike
+member	Thursday	157711	electric_bike
+member	Tuesday	268142	classic_bike
+member	Tuesday	153739	electric_bike
+member	Wednesday	266108	classic_bike
+member	Wednesday	157489	electric_bike
+
+-- Most popular bike type by member type 
+
+SELECT
+member_casual AS member_type,
+rideable_type AS bike_type,
+COUNT(*) AS number_of_trips
+
+FROM tripdata
+
+GROUP BY
+member_type, bike_type
+
+ORDER BY
+member_type, number_of_trips DESC, bike_type;
+
+casual	classic_bike	888878
+casual	electric_bike	722294
+casual	docked_bike	174950
+member	classic_bike	1708692
+member	electric_bike	958679
+
+
+-- Find popular start time for rides during the week by member type
+
+SELECT
+member_casual AS member_type,
+substr(started_at, 1,2) AS hour_of_day,
+COUNT(*) AS num_of_rides,
+rideable_type
+
+FROM
+tripdata
+
+GROUP BY
+member_type, hour_of_day, rideable_type
+
+ORDER BY
+member_type, hour_of_day;
+
+casual	01	25915	classic_bike
+casual	01	4918	docked_bike
+casual	01	24688	electric_bike
+casual	02	30126	classic_bike
+casual	02	5833	docked_bike
+casual	02	25138	electric_bike
+casual	03	31286	classic_bike
+casual	03	6440	docked_bike
+casual	03	25881	electric_bike
+casual	04	26903	classic_bike
+casual	04	5723	docked_bike
+casual	04	24164	electric_bike
+casual	05	31323	classic_bike
+casual	05	6898	docked_bike
+casual	05	24480	electric_bike
+casual	06	24070	classic_bike
+casual	06	4438	docked_bike
+casual	06	21508	electric_bike
+casual	07	22891	classic_bike
+casual	07	4361	docked_bike
+casual	07	20976	electric_bike
+casual	08	20045	classic_bike
+casual	08	3794	docked_bike
+casual	08	21183	electric_bike
+casual	09	34795	classic_bike
+casual	09	6900	docked_bike
+casual	09	28173	electric_bike
+casual	10	37071	classic_bike
+casual	10	7380	docked_bike
+casual	10	28605	electric_bike
+casual	11	28116	classic_bike
+casual	11	5530	docked_bike
+casual	11	20980	electric_bike
+casual	12	27919	classic_bike
+casual	12	5606	docked_bike
+casual	12	22175	electric_bike
+casual	13	29778	classic_bike
+casual	13	6127	docked_bike
+casual	13	23931	electric_bike
+casual	14	32980	classic_bike
+casual	14	6353	docked_bike
+casual	14	22922	electric_bike
+casual	15	24720	classic_bike
+casual	15	5045	docked_bike
+casual	15	20021	electric_bike
+casual	16	33650	classic_bike
+casual	16	6984	docked_bike
+casual	16	26355	electric_bike
+casual	17	31093	classic_bike
+casual	17	5725	docked_bike
+casual	17	23069	electric_bike
+casual	18	28462	classic_bike
+casual	18	5231	docked_bike
+casual	18	20920	electric_bike
+casual	19	29250	classic_bike
+casual	19	5800	docked_bike
+casual	19	22489	electric_bike
+casual	20	28616	classic_bike
+casual	20	5690	docked_bike
+casual	20	23171	electric_bike
+casual	21	29960	classic_bike
+casual	21	6323	docked_bike
+casual	21	25045	electric_bike
+casual	22	28299	classic_bike
+casual	22	5314	docked_bike
+casual	22	25062	electric_bike
+casual	23	37010	classic_bike
+casual	23	7615	docked_bike
+casual	23	27146	electric_bike
+casual	24	29597	classic_bike
+casual	24	5864	docked_bike
+casual	24	23979	electric_bike
+casual	25	20856	classic_bike
+casual	25	3935	docked_bike
+casual	25	18270	electric_bike
+casual	26	28262	classic_bike
+casual	26	5081	docked_bike
+casual	26	22564	electric_bike
+casual	27	23424	classic_bike
+casual	27	4413	docked_bike
+casual	27	21213	electric_bike
+casual	28	29585	classic_bike
+casual	28	5809	docked_bike
+casual	28	23852	electric_bike
+casual	29	33389	classic_bike
+casual	29	6338	docked_bike
+casual	29	25663	electric_bike
+casual	30	33077	classic_bike
+casual	30	6447	docked_bike
+casual	30	25305	electric_bike
+casual	31	16410	classic_bike
+casual	31	3035	docked_bike
+casual	31	13366	electric_bike
+member	01	58793	classic_bike
+member	01	34936	electric_bike
+member	02	57563	classic_bike
+member	02	33711	electric_bike
+member	03	53028	classic_bike
+member	03	31969	electric_bike
+member	04	52998	classic_bike
+member	04	31161	electric_bike
+member	05	54507	classic_bike
+member	05	30062	electric_bike
+member	06	51883	classic_bike
+member	06	30108	electric_bike
+member	07	54683	classic_bike
+member	07	31818	electric_bike
+member	08	51895	classic_bike
+member	08	32345	electric_bike
+member	09	63070	classic_bike
+member	09	34796	electric_bike
+member	10	64867	classic_bike
+member	10	35255	electric_bike
+member	11	55458	classic_bike
+member	11	29586	electric_bike
+member	12	58608	classic_bike
+member	12	31137	electric_bike
+member	13	58970	classic_bike
+member	13	31723	electric_bike
+member	14	61390	classic_bike
+member	14	32468	electric_bike
+member	15	51779	classic_bike
+member	15	29186	electric_bike
+member	16	60950	classic_bike
+member	16	32351	electric_bike
+member	17	54596	classic_bike
+member	17	29813	electric_bike
+member	18	51334	classic_bike
+member	18	28711	electric_bike
+member	19	55836	classic_bike
+member	19	30957	electric_bike
+member	20	55752	classic_bike
+member	20	30471	electric_bike
+member	21	62125	classic_bike
+member	21	34627	electric_bike
+member	22	55872	classic_bike
+member	22	32266	electric_bike
+member	23	59677	classic_bike
+member	23	31790	electric_bike
+member	24	51768	classic_bike
+member	24	28753	electric_bike
+member	25	44390	classic_bike
+member	25	25607	electric_bike
+member	26	54838	classic_bike
+member	26	29998	electric_bike
+member	27	51991	classic_bike
+member	27	30140	electric_bike
+member	28	57428	classic_bike
+member	28	33215	electric_bike
+member	29	57051	classic_bike
+member	29	32947	electric_bike
+member	30	51276	classic_bike
+member	30	29238	electric_bike
+member	31	34316	classic_bike
+member	31	17534	electric_bike
+
+
+--Find popular start time for rides during the week for electric casual riders
+
+SELECT
+substr(started_at, 11, 15) AS hour_of_day,
+COUNT(*) AS num_of_rides,
+member_casual, 
+rideable_type
+FROM
+tripdata
+ 
+
+GROUP BY
+hour_of_day, member_casual
+
+ORDER BY
+hour_of_day DESC
+
+LIMIT 10;
+
+ 23:59	626	casual	classic_bike
+ 23:59	513	member	classic_bike
+ 23:58	677	casual	classic_bike
+ 23:58	511	member	classic_bike
+ 23:57	712	casual	classic_bike
+ 23:57	630	member	classic_bike
+ 23:56	621	casual	classic_bike
+ 23:56	558	member	classic_bike
+ 23:55	650	casual	classic_bike
+ 23:55	562	member	classic_bike

@@ -1,7 +1,6 @@
 
 # Google-Data-Analytics-Capstone-Project-Cyclistic-Ride-Share
 
-### Dashboard Link : https://app.powerbi.com/groups/me/dashboards/d61cc99e-0a7f-4887-a076-a17e6e33e39c?experience=power-bi
 
 ## Introduction
 
@@ -63,7 +62,10 @@ I used the open-source platform DB Browser with SQLite to UNION all the tables f
 
 Complete list of SQL code can be found [here](https://github.com/noor2560/Google-Data-Analytics-Capstone-Project-Cyclistic-Ride-Share/blob/main/SQL%20code).
 
+
 #### 5) SHARE : Visualize data using Microsoft Power BI
 
+[Dashboard Link](https://app.powerbi.com/groups/me/dashboards/d61cc99e-0a7f-4887-a076-a17e6e33e39c?experience=power-bi)
+           
            
 

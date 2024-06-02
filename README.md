@@ -66,6 +66,7 @@ Complete list of SQL code can be found [here](https://github.com/noor2560/Google
 #### 5) SHARE : Visualize data using Microsoft Power BI
 
 [Dashboard Link](https://app.powerbi.com/groups/me/dashboards/d61cc99e-0a7f-4887-a076-a17e6e33e39c?experience=power-bi)
-           
+
+Power BI file is available on Github Release of this Repository.
            
 

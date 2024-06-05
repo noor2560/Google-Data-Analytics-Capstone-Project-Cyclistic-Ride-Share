@@ -98,7 +98,7 @@ Power BI file is available on Github Release of this Repository.
 
 - The most popular bike type is Classic bike with 58% of riders choosing this type. Hence, majority of riders' needs and expectations in terms of comfort, ease of use, and suitability for both commuting and leisure activities.
 
--Wells St and Concord Ln is the most popular destination for both casual and member riders. The location serves as a central hub for both commuting and leisure activities. For commuters, it could be near workplaces, while for casual riders, it is close to parks, shops, or entertainment venues.
+- Wells St and Concord Ln is the most popular destination for both casual and member riders. The location serves as a central hub for both commuting and leisure activities. For commuters, it could be near workplaces, while for casual riders, it is close to parks, shops, or entertainment venues.
 
 #### How Members Use Bikes Differently Than Casual Riders?
 

@@ -65,11 +65,9 @@ Complete list of SQL code can be found [here](https://github.com/noor2560/Google
 
 #### 5) SHARE : Visualize data using Microsoft Power BI
 
-[Dashboard Link](https://app.powerbi.com/groups/me/dashboards/d61cc99e-0a7f-4887-a076-a17e6e33e39c?experience=power-bi)
 
-![image](https://github.com/noor2560/Google-Data-Analytics-Capstone-Project-Cyclistic-Ride-Share/assets/108732316/fd95fb6f-c4a5-4861-91b7-2fde6d604643)
+[Power BI file](https://github.com/noor2560/Google-Data-Analytics-Capstone-Project-Cyclistic-Ride-Share/releases/tag/v1.0)
 
-![image](https://github.com/noor2560/Google-Data-Analytics-Capstone-Project-Cyclistic-Ride-Share/assets/108732316/4905729c-f45b-4ed6-8c1f-84dee4763181)
 
 Power BI file is available on Github Release of this Repository.
            
@@ -77,7 +75,11 @@ Power BI file is available on Github Release of this Repository.
 
 ![image](https://github.com/noor2560/Google-Data-Analytics-Capstone-Project-Cyclistic-Ride-Share/assets/108732316/90334f17-91f3-48b8-91f9-8c28dce9db3c)
 
-#### ACT: Findings and Recommendations
+![image](https://github.com/noor2560/Google-Data-Analytics-Capstone-Project-Cyclistic-Ride-Share/assets/108732316/fd95fb6f-c4a5-4861-91b7-2fde6d604643)
+
+![image](https://github.com/noor2560/Google-Data-Analytics-Capstone-Project-Cyclistic-Ride-Share/assets/108732316/4905729c-f45b-4ed6-8c1f-84dee4763181)
+
+### ACT: Findings and Recommendations
 
 ### Insights from the report
 
@@ -136,7 +138,8 @@ Reasons for Buying Annual Memberships:
 
 - README file
 - Sql file
-- Power BI report files (.pbix)
+- Power BI report file (.pbix)
+- Trip Data
 
 
 

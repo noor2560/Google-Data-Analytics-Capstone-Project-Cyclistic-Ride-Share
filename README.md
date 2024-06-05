@@ -67,9 +67,87 @@ Complete list of SQL code can be found [here](https://github.com/noor2560/Google
 
 [Dashboard Link](https://app.powerbi.com/groups/me/dashboards/d61cc99e-0a7f-4887-a076-a17e6e33e39c?experience=power-bi)
 
+![image](https://github.com/noor2560/Google-Data-Analytics-Capstone-Project-Cyclistic-Ride-Share/assets/108732316/fd95fb6f-c4a5-4861-91b7-2fde6d604643)
+
+![image](https://github.com/noor2560/Google-Data-Analytics-Capstone-Project-Cyclistic-Ride-Share/assets/108732316/4905729c-f45b-4ed6-8c1f-84dee4763181)
+
 Power BI file is available on Github Release of this Repository.
            
 #### Snapshots of the report
 
 ![image](https://github.com/noor2560/Google-Data-Analytics-Capstone-Project-Cyclistic-Ride-Share/assets/108732316/90334f17-91f3-48b8-91f9-8c28dce9db3c)
 
+#### ACT: Findings and Recommendations
+
+### Insights from the report
+
+
+- The Average trip duration for casual riders is 16 minutes 32 seconds while trip duration for member riders is 11 minutes and 22 seconds.
+
+- Preferred days member riders ride is weekdays (Tuesday, Wednesday and Thursday).
+
+- The Casual riders ride the most on weekends (Saturday and Sunday).
+
+- The highest number of trips by member riders in the year 2022 is in September while for Casual members it is in the month of July.
+
+- Member riders start their ride in the early hours of morning at around 6:00 AM  possibly commuting to work or school. We can also see a sharp peak at 18:00 PM in the evening which aligns with typical end-of-workday hours, indicating that members are likely riding home from work. This high frequency of riders at these times indicats regular use for commuting to and from work or school.
+
+- Casual riders start their rides at around 12 noon. There is a gradual rise in the line chart at around 6:00 PM which suggests that casual riders may be using the bikes for leisure activities, such as lunchtime rides, sightseeing, or casual outings during the day.
+
+- The most popular bike type is Classic bike with 58% of riders choosing this type. Hence, majority of riders' needs and expectations in terms of comfort, ease of use, and suitability for both commuting and leisure activities.
+
+-Wells St and Concord Ln is the most popular destination for both casual and member riders. The location serves as a central hub for both commuting and leisure activities. For commuters, it could be near workplaces, while for casual riders, it is close to parks, shops, or entertainment venues.
+
+#### How Members Use Bikes Differently Than Casual Riders?
+
+Member Riders use bikes for: 
+
+- Commuting
+- Shorter rides  
+- More frequent usage
+
+Casual Riders use bikes for: 
+- Recreational purposes
+- Longer rides 
+- Less frequent usage
+
+
+
+
+
+#### Why would casual riders buy Cyclistic annual memberships?
+
+Reasons for Buying Annual Memberships:
+
+- Cost savings for frequent users.
+- Access to bikes during peak times.
+- Special promotions or discounts.
+- Benefits such as cost savings, convenience, and additional perks could entice casual riders.
+
+#### How can Cyclistic use digital media to influence casual riders to become members?
+
+- Use targeted social media campaigns to highlight the convenience and cost-effectiveness of memberships.
+
+- Provide special offers and discounts for frequent riders.
+
+
+
+### Repository Contents:
+
+- README file
+- Sql file
+- Power BI report files (.pbix)
+
+
+
+
+
+
+
+
+
+
+
+
+
+        

@@ -69,4 +69,7 @@ Complete list of SQL code can be found [here](https://github.com/noor2560/Google
 
 Power BI file is available on Github Release of this Repository.
            
+#### Snapshots of the report
+
+![image](https://github.com/noor2560/Google-Data-Analytics-Capstone-Project-Cyclistic-Ride-Share/assets/108732316/90334f17-91f3-48b8-91f9-8c28dce9db3c)
 
